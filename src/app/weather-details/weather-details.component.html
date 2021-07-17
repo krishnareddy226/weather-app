@@ -1,0 +1,24 @@
+<div class="content" role="main">
+    <a class="card card-lg">
+        <section class="location m-10">
+            <div class="city">{{forcast?.city?.name}}</div>
+        </section>
+        <div class="m-10">Few forecasts</div>
+        <div class="forcast">
+            <ng-container *ngFor="let weather of forcast?.list | slice:0:5; let i=index">
+                <div class="current m-10">
+                    <div class="date">{{weather.dt_txt | date : 'short'}}</div>
+                    <div class="temp">{{weather?.main?.temp}}<span>°c</span></div>
+                    <div class="weather">
+                        <img [src]="'http://openweathermap.org/img/wn/'+ weather?.weather[0]?.icon+'@2x.png'"
+                            [title]="weather?.weather[0]?.description" [alt]="weather?.weather[0]?.description"
+                            height="70" width="70" />
+                        <div>{{weather?.weather[0]?.main}}</div>
+                    </div>
+                    <div class="sea-level">Sea level - {{weather?.main?.sea_level}} <span>hPa</span></div>
+                    <div class="hi-low">{{weather?.main?.temp_max}}°c/{{weather?.main?.temp_min}}°c</div>
+                </div>
+            </ng-container>
+        </div>
+    </a>
+</div>

@@ -1,0 +1,22 @@
+<div class="card-container">
+    <a class="card card-md" [routerLink]="['/forcast', weather.name]">
+        <div class="center">
+            <section class="location">
+                <div class="city">{{weather.name}}, {{weather?.sys?.country}}</div>
+                <div class="date">{{getDate(weather.dt, weather.sys.timezone) | date: 'medium'}}</div>
+            </section>
+            <div class="current">
+                <div class="temp">{{weather?.main?.temp}}<span>°c</span></div>
+                <div class="weather">
+                    <img [src]="'http://openweathermap.org/img/wn/'+ weather?.weather[0]?.icon+'@2x.png'" [title]="weather?.weather[0]?.main"  
+                    [alt]="weather?.weather[0]?.description" height="70" width="70"/>
+                </div>
+                <div class="hi-low">{{weather?.main?.temp_max}}°c/{{weather?.main?.temp_min}}°c</div>
+            </div>
+            <div class="sun">
+                <div class="rise">Sunrise - {{getDate(weather.sys.sunrise, weather.sys.timezone) | date : 'shortTime'}}</div>
+                <div class="set">Sunset - {{getDate(weather.sys.sunset, weather.sys.timezone) | date : 'shortTime'}}</div>
+            </div>
+        </div>
+    </a>
+</div>
