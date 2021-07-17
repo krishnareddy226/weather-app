@@ -13,11 +13,11 @@ export class WeatherDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     let location = this.route.snapshot.paramMap.get('location');
-    this.getForcat(location);
+    this.getForecast(location);
   }
 
-  getForcat(location) {
-    this.service.getForcat(location).subscribe(
+  getForecast(location) {
+    this.service.getForecast(location).subscribe(
       (res: any) => {
         this.forcast = res;
       }

@@ -40,7 +40,7 @@ export class WeatherService {
     return this.http.get(url);
   }
 
-  getForcat(location) {
+  getForecast(location) {
     return this.http.get(this.getUrl(location));
   }
 

@@ -3,7 +3,7 @@
         <section class="location m-10">
             <div class="city">{{forcast?.city?.name}}</div>
         </section>
-        <div class="m-10">Few forecasts</div>
+        <div class="few-forecast m-10">Few forecasts</div>
         <div class="forcast">
             <ng-container *ngFor="let weather of forcast?.list | slice:0:5; let i=index">
                 <div class="current m-10">
